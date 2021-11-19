@@ -1,0 +1,48 @@
+.widget {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    height: 300px;
+    width: 600px;
+    transform: translate(-50%, -50%);
+    flex-wrap: wrap;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+  }
+   
+    .display{
+      position: relative;
+      bottom: -10.5%;
+      flex: 0 0 70%;
+      height: 40%;
+      background: #080705;
+      border-bottom-left-radius: 20px;
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 50px;
+      
+     }
+    
+    .inc{
+      position: relative;
+      bottom: -10.5%;
+      border:0;
+      flex: 0 0 30%;
+      height: 40%;
+      background: #70C1B3;
+      border-bottom-right-radius: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: white;
+      font-size: 30px;
+      font-weight: 800;
+    
+  }
+  
+  .inc:hover{
+    cursor: pointer;
+  }
