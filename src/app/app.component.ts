@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component} from '@angular/core';
 
 
 
@@ -9,10 +9,10 @@ import { Component, OnChanges } from '@angular/core';
 })
 export class AppComponent  {
   heading = 'Angular';
-  public initaldata = {count:1}
+  public initaldata = {heading:"React App",count:0}
  
-  Inc():void{
-    this.initaldata.count +=1
+  reset():void{
+    this.initaldata.count =0
     this.initaldata  =  Object.assign({}, this.initaldata);
   }
 }

@@ -1,7 +1,7 @@
-<div class="widget">
-  <app-loader [appdata] ="initaldata" [manifestPath]="'http://localhost:5003/manifest.json'" [namespace]="'footerApp'"></app-loader>
-  <div class="display">
-    {{heading}} : {{initaldata.count}}
-  </div>
-  <button class="inc" (click)="Inc()">Goals Portal</button>
+<div class="angular">
+<h1>{{heading}}</h1>
+<button (click)="reset()">Reset Counter</button>
 </div>
+<app-loader [appdata] ="initaldata" [manifestPath]="'http://localhost:5003/manifest.json'" [namespace]="'footerApp'"></app-loader>
+ 
+
