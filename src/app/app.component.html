@@ -1,7 +1,8 @@
-<div class="angular">
-<h1>{{heading}}</h1>
-<button (click)="reset()">Reset Counter</button>
-</div>
-<app-loader [appdata] ="initaldata" [manifestPath]="'http://localhost:5003/manifest.json'" [namespace]="'footerApp'"></app-loader>
- 
+<app-loader
+  [domain]="'https://it5-onlinebanking.usbank.com'"
+  [manifestPath]="'https://it5-onlinebanking.usbank.com/digital/servicing/global-nav/manifest.json'"
+  [namespace]="'USBHeader'"
+  [id]="'usb'"
+></app-loader>
+
 

@@ -15,20 +15,21 @@ import {
   styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent implements  OnChanges, AfterViewInit,OnDestroy {
-  @ViewChild('container') reactapp: ElementRef;
-  @Input() appdata  :Object
+  @Input() appdata = {}
   @Input() manifestPath = ''
   @Input() namespace:any
   @Input() id ='test'
+  @Input() domain:string =''
 
-  public Loading = true;
   public data: any;
 
  
   ngOnChanges(): void {
+    console.log("change")
     this.mount(this.namespace);
   }
   ngAfterViewInit(): void {
+    console.log("view")
     this.load(this.manifestPath).then((res)=>{
       this.data = {...res}
       this.mount(this.namespace);
@@ -57,8 +58,9 @@ export class LoaderComponent implements  OnChanges, AfterViewInit,OnDestroy {
       return 
     }
     for (var key of Object.keys(this.data)) {
-      let temp = key.match(/\.[0-9a-z]+$/i);
-      if (temp && temp[0] == '.js') {
+     
+      if (key==="main.js") {
+        this.data[key] = this.domain+this.data[key]
         const script = document.createElement('script');
         script.src = this.data[key];
         script.id = 'react-app';
@@ -67,8 +69,10 @@ export class LoaderComponent implements  OnChanges, AfterViewInit,OnDestroy {
         script.onload = () => {
           if (window && namespace in window) {
             (window[namespace] as any).default.render(
-              this.reactapp.nativeElement,
-              this.appdata
+              {
+                selector:'#'+this.id,
+                props:this.appdata
+              }
             );
           }
         };
